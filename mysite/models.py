@@ -4,6 +4,7 @@ from django.db import models
 
 
 class drive(models.Model):
-    file = models.FileField(upload_to="drive")
+    title = models.CharField(max_length=180)
+    file = models.FileField(upload_to="drive/%Y/%m/%d/")
     def __str__(self):
-        return self.file.name
+        return self.title

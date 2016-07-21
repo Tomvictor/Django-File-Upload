@@ -9,10 +9,11 @@ def home(request):
         form = UploadForm(request.POST,request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
-            print(instance)
+            #print(instance)
             instance.save()
 
+    all_files = drive.objects.order_by('title')
     context = {
-        "form":UploadForm
+        "form":UploadForm, "files":all_files
     }
     return render(request,'home.html',context)
