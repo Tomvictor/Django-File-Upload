@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from .forms import UploadForm
 
 # Create your views here.
 
 
 def home(request):
-    return render(request,'home.html',{})
+    context = {
+        "form":UploadForm
+    }
+    return render(request,'home.html',context)
